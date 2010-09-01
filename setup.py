@@ -3,6 +3,21 @@ import os
 
 version = '0.1'
 
+install_requires = [
+    'setuptools',
+    'dolmen.content',
+    'z3c.schema2xml',
+    ]
+
+tests_require = [
+    'zope.container',
+    'zope.security',
+    'zope.site',
+    'zope.testing',
+    'zope.traversing',
+    'zope.location',
+    ]
+
 setup(name='dolmen.xmlobject',
       version=version,
       description="Dolmen XML object loader/dumper",
@@ -21,11 +36,9 @@ setup(name='dolmen.xmlobject',
       namespace_packages=['dolmen'],
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-          'setuptools',
-          'dolmen.content',
-          'z3c.schema2xml',
-      ],
+      tests_require = tests_require,
+      install_requires = install_requires,
+      extras_require = {'test': tests_require},
       entry_points="""
       # -*- Entry points: -*-
       """,
